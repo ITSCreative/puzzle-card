@@ -1,0 +1,98 @@
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.comoves.unam.mx/storage/revista/298/memes-ideas-que-se-contagian.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+
+.puzzle-board {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 140px;
+  height: 125.6px;
+  background-color: rgb(186, 205, 241);
+  border: 2px solid rgb(164, 174, 210);
+  border-radius: 2px;
+  font-style:italic;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+  color:rgb(15, 15, 53)
+}
+
+.card.flipped {
+  background-color: rgba(144, 238, 144, 0);
+  border: 2px solid rgba(164, 174, 210, 0);
+  color: rgba(250, 235, 215, 0);
+  transform: rotateY(180deg);
+}
+
+.question-modal {
+  position: fixed;
+  width: 600px;
+  height: 340px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background: #f9f9f9; /* Un tono suave para el fondo */
+  border: 2px solid #ccc; /* Color de borde más suave */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera para un efecto elevado */
+  z-index: 1000;
+  border-radius: 20px;
+  transition: all 0.3s ease; /* Transición suave al hacer hover */
+}
+
+
+.question-modal button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  background-color: #65696d;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.question-modal button:hover {
+  background-color: #0056b3;
+}
+
+.question-modal .options button {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.question-modal .actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.question-modal .actions button {
+  width: 48%; /* Para asegurar que estén alineados y separados */
+}
+
+.error {
+  color: #d9534f;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+}
+
