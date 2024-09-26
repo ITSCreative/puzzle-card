@@ -1,24 +1,38 @@
-.background-image {
-  position: absolute;
+img {
+  position: fixed;
+  background-size: cover; /* Hace que el GIF cubra toda la pantalla */
+  background-position: center; /* Centra el GIF */
+  background-repeat: no-repeat; /* Evita que el GIF se repita */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://www.comoves.unam.mx/storage/revista/298/memes-ideas-que-se-contagian.jpg');
+  z-index: -2;
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('src/assets/VirgenWeb.svg');
   background-size: cover;
   background-position: center;
   z-index: -1;
 }
 
-
 .puzzle-board {
   display: flex;
   flex-wrap: wrap;
+  margin-left: 50px;
+  font-family: 'Roboto', sans-serif;
+  z-index: 1;
 }
 
 .card {
   width: 140px;
-  height: 125.6px;
+  height: 142px;
   background-color: rgb(186, 205, 241);
   border: 2px solid rgb(164, 174, 210);
   border-radius: 2px;
@@ -53,6 +67,7 @@
   z-index: 1000;
   border-radius: 20px;
   transition: all 0.3s ease; /* Transición suave al hacer hover */
+  font-family: 'Roboto', sans-serif;
 }
 
 
@@ -96,3 +111,6 @@
   border-radius: 8px;
 }
 
+.span {
+    font-family: 'Roboto', sans-serif;
+}
