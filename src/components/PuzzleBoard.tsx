@@ -11,7 +11,6 @@ const PuzzleBoard: React.FC<PuzzleBoardProps> = ({ cardsCount, progress, setSele
   const cards = Array.from({ length: cardsCount }, (_, index) => index);
 
   return (
-    <div className="background-image">
     <div className="puzzle-board">
       {cards.map((cardIndex) => (
         <Card
@@ -21,7 +20,6 @@ const PuzzleBoard: React.FC<PuzzleBoardProps> = ({ cardsCount, progress, setSele
           onClick={() => setSelectedCard(cardIndex)} // Llamar setSelectedCard al hacer clic en la carta
         />
       ))}
-    </div>
     </div>
   );
 };

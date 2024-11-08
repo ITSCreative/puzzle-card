@@ -1,8 +1,10 @@
 body {
+  position: fixed;
   background-image: url('src/assets/Fondo Animado.gif'); /* Ruta relativa al GIF */
   background-size: cover; /* Hace que el GIF cubra toda la pantalla */
-  background-position: center; /* Centra el GIF */
+  background-position: end; /* Centra el GIF */
   background-repeat: no-repeat; /* Evita que el GIF se repita */
+  weight: 100%;
   height: 100vh; /* Hace que el fondo cubra toda la ventana */
   margin: 0;
 }
@@ -10,27 +12,30 @@ body {
 .background-image {
   position: fixed;
   top: 0;
-  left: -1px;
-  width: 101.29%;
-  height: 100vh;
-  background-image: url('src/assets/VirgenWeb.svg');
-  background-size: cover;
-  background-position: center;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  background-image: url('src/assets/PNG/gift1.png');
 }
 
 .puzzle-board {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 50px;
+  margin-left: 69px;
   font-family: 'Roboto', sans-serif;
-  font-size: 17px;
+  font-size: 30px;
+  z-index: 10001;
 
-  z-index: 1;
 }
 
 .card {
-  width: 140px;
-  height: 142px;
+  width: 137px;
+  height: 285px;
   background-color: rgb(0, 132, 146);
   border: 2px solid rgb(107, 107, 107);
   border-radius: 1px;
@@ -39,46 +44,77 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: transform 0.3s;
-  color:rgb(255, 255, 255)
+  transition: transform 0.5s;
+  color: rgb(255, 255, 255);
+}
+
+.card:hover {
+  width: 137px;
+  height: 285px;
+  background-color: rgb(0, 160, 160);
+  border: 2px solid rgb(107, 107, 107);
+  border-radius: 1px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .card.flipped {
   background-color: rgba(144, 238, 144, 0);
-  border: 2px solid rgba(164, 174, 210, 0);
+  border: 2px solid rgba(234, 190, 63, 0);
   color: rgba(250, 235, 215, 0);
-  transform: rotateY(180deg);
+  transform: rotateY(360deg);
+}
+
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Asegura que el confeti no interfiera con otras interacciones */
+  z-index: 10100; /* Asegura que esté por encima de todos los elementos */
 }
 
 .question-modal {
   position: fixed;
-  width: 600px;
-  height: 340px;
+  display: fixed;
+  width:900px;
+  height: 730px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 20px;
+  padding:40px;
   background: #f9f9f9; /* Un tono suave para el fondo */
   border: 2px solid #ccc; /* Color de borde más suave */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera para un efecto elevado */
-  z-index: 1000;
+  z-index: 9999; /* Asegura que esté por encima de las cartas */
   border-radius: 20px;
   transition: all 0.3s ease; /* Transición suave al hacer hover */
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto-Bold', sans-serif;
+  font-size:30px;
 }
-
 
 .question-modal button {
   width: 100%;
+  height:110px;
   padding: 10px;
   margin: 10px 0;
   border: none;
   border-radius: 10px;
   background-color: #65696d;
   color: white;
-  font-size: 16px;
+  font-size: 30px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  transition: opacity 0.5s ease; /* Transición de opacidad */
+  opacity: 1; /* Estado visible */
+}
+
+.question-modal.hidden {
+  opacity: 0; /* Estado oculto */
 }
 
 .question-modal button:hover {
@@ -93,21 +129,84 @@ body {
 .question-modal .actions {
   display: flex;
   justify-content: space-between;
+  justify-items: center;
+  align-content: end;
+  align-items: end;
 }
 
 .question-modal .actions button {
-  width: 48%; /* Para asegurar que estén alineados y separados */
+  width: 48%;
+  height: 75px;
+  margin-top: 2vh; 
+  font-size: 30px;
+  background-color: #cc0000;
+}
+
+.question-modal .actions button:hover {
+  width: 48%;
+  height: 75px;
+  font-size: 30px;
+  background-color: #0056b3;
+}
+
+
+.options button {
+  background-color: #6c6c6c; /* Color inicial del botón */
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 40px;
+}
+
+.options button.selected {
+  background-color: #4CAF50; /* Color cuando está seleccionado */
+  color: #fff; /* Color del texto en estado seleccionado */
+  border-color: #45a049;
+  
+}
+
+.options button.incorrect {
+  background-color: #ff4d4d; /* Color rojo para respuestas incorrectas */
+  color: #fff;
+  border-color: #ff3333;
+  font-size: 30px;
 }
 
 .error {
   color: #d9534f;
   font-weight: bold;
-  margin-top: 20px;
   text-align: center;
-  padding: 10px;
+  margin-top: 35px;
+  margin-bottom: 20px;
   border-radius: 8px;
+  font-size: 30px;
 }
 
 .span {
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-size: 40px;
+}
+
+.close-button {
+  position: fixed;
+  top: 45px;
+  right: 335px;
+  width: 55px;
+  height: 55px;
+  padding-top: 0px;
+  background: #f9f9f9;
+  border: none 0px;
+  border-radius: 10px;
+  font-size: 40px;
+  cursor: pointer;
+  color: #333; /* Color del botón de cierre */
+  z-index: 10000; /* Para que esté por encima del contenido del modal */
+  transition: color 0.05s ease;
+}
+
+.close-button:hover {
+  color: #ff0000; /* Cambia el color al pasar el mouse */
+  background: #666666;
+  border: none 0px;
+  border-radius: 10px;
 }

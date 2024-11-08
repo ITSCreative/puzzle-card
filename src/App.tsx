@@ -6,7 +6,7 @@ import { getStoredProgress, resetProgress } from './logic/utils';
 const App: React.FC = () => {
   const [progress, setProgress] = useState<string[]>([]);
   const [selectedCard, setSelectedCard] = useState<number | null>(null);
-  const [cardsCount, setCardsCount] = useState<number>(60);
+  const [cardsCount, setCardsCount] = useState<number>(30);
   const [showQuestion, setShowQuestion] = useState(false);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const App: React.FC = () => {
   const handleReset = () => {
     resetProgress();
     setProgress([]);
-    setCardsCount(60);
+    setCardsCount(30);
     setShowQuestion(false);
   };
 
@@ -41,7 +41,7 @@ const App: React.FC = () => {
       />
       {showQuestion && selectedCard !== null && (
         <Question
-          cardIndex={selectedCard}
+          cardIndex ={selectedCard}
           setProgress={updateProgress}
           setShowQuestion={setShowQuestion}
           handleReset={handleReset}
