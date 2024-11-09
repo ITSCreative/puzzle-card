@@ -134,16 +134,16 @@ body {
 }
 
 .question-modal .action button {
-  padding: 0px 145px 0px 145px;
+  padding: 0px 133.33px 0px 133.33px;
   margin-top: 2vh; 
-  font-size: 30px;
-  background-color: #990000;
+  font-size: 35px;
+  background-color: #aa0000;
 }
 
 .question-modal .action button:hover {
-  padding: 0px 145px 0px 145px;
+  padding: 0px 94.4px 0px 94.4px;
   margin-top: 2vh;
-  font-size: 30px;
+  font-size: 50px;
   background-color: #ff0000;
 }
 
