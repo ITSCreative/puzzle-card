@@ -10,7 +10,7 @@ const questions = [
     isSpecial: false // Pregunta de respuesta única
   },
   {
-    question: "Qué tan intuitivo te resultó el uso de la tecnología durante tu visita?",
+    question: "Qué tan sencillo te resultó el uso de la tecnología durante tu visita?",
     options: ["Muy fácil de usar", "Algo confuso en algunas áreas", "Difícil de entender sin ayuda"],
     correctAnswers: [],
     isSpecial: false
@@ -24,8 +24,8 @@ const questions = [
   },
   {
     question: "En qué técnica ves las obras en movimiento?",
-    options: ["Salas Inmersivas", "Stop-motion", "Pinturas Movil"],
-    correctAnswers: ["Salas Inmersivas"],
+    options: ["Proyecciones", "Hecho a mano", "Pinturas Movil"],
+    correctAnswers: ["Proyecciones"],
     isSpecial: true
   },
   {
@@ -36,24 +36,24 @@ const questions = [
   },
   {
     question: "En que consiste la realidad aumentada?",
-    options: ["Se puede interactuar con la obra", "Son Figuras y modelos 3D de las obras", "Son videos de las obras en movimiento"],
+    options: ["Agrandar la Realidad", "Son Figuras y modelos 3D de las obras", "Son imagenes planas"],
     correctAnswers: ["Son Figuras y modelos 3D de las obras"],
     isSpecial: true
   },
   {
-    question: "Qué tanto tiempo te habría gustado pasar en cada exhibición?",
-    options: ["Más tiempo en cada una", "El tiempo fue adecuado", "Menos tiempo, algunas eran largas"],
+    question: "Cuanto tiempo te hubiera gustado pasar en cada exhibición?",
+    options: ["Más tiempo en cada una", "El tiempo fue adecuado", "Algunas eran largas"],
     correctAnswers: [],
     isSpecial: false
   },
   {
     question: "Qué técnicas fueron aplicadas dentro del evento?",
-    options: [ "Ilustración, Arte Conceptual", "Ilustración Tradicional, Ilustraciones planas", "Video Mapping, Arte colaborativo"],
+    options: [ "Dibujo a mano", "No vi bien, deje doy una vueltita", "Video Mapping más Arte colaborativo"],
     correctAnswers: ["Video Mapping, Arte colaborativo"],
     isSpecial: true
   },
   {
-    question: "Qué tan satisfecho te sientes con la duración de la experiencia?",
+    question: "Qué tan satisfecho te sientes con la duración de cada experiencia?",
     options: ["Muy satisfecho", "Algo insatisfecho, fue corta", "Insatisfecho, fue muy larga"],
     correctAnswers: [],
     isSpecial: false
@@ -68,7 +68,7 @@ const questions = [
 10 primeras preguntas
 */
   {
-    question: "La realidad aumentada hace que la obra de arte se vea 3D en el espacio?",
+    question: "La realidad aumentada hace que la obras de arte se vean en 3D?",
     options: ["Verdadero", "Falso"],
     correctAnswers: ["Verdadero"],
     isSpecial: true
@@ -87,7 +87,7 @@ const questions = [
     isSpecial: true
   },
   {
-    question: "Cuál de estos es una técnica de arte inmersivo?",
+    question: "Cuál de estos es una técnica inmersiva?",
     options: ["Fotocopiar cuadros", "Dibujar con lápices de colores", "Realidad aumentada"],
     correctAnswers: ["Realidad aumentada"],
     isSpecial: true
@@ -100,21 +100,23 @@ const questions = [
   },
   {
     question: "Te gustó esta experiencia?",
-    options: ["Sí, la amé <3", "No"],
+    options: ["Sí, la amé <3", "No >:C"],
     correctAnswers: [],
     isSpecial: false
   },
   {
     question: "Cómo ayuda la realidad aumentada en un museo inmersivo?",
-    options: ["Añadiendo elementos digitales que se superponen a la realidad física", "Cambiando los colores de las obras permanentemente", "Reemplazando por completo las obras físicas"],
+    options: ["Añadiendo elementos digitales que se superponen a la realidad física", "Colores con lucesitas", "Reemplazando por completo las obras físicas"],
     correctAnswers: ["Añadiendo elementos digitales que se superponen a la realidad física"],
     isSpecial: true
-  },{
+  },
+  {
     question: "Qué tipo de arte suele incluir un museo inmersivo?",
     options: ["Solo pintura clásica", "Arte interactivo y digital", "Únicamente esculturas de gran tamaño"],
-    correctAnswers: [],
-    isSpecial: false
-  },{
+    correctAnswers: ["Arte interactivo y digital"],
+    isSpecial: true
+  },
+  {
     question: "Cual es el nombre del museo inmersivo?",
     options: ["Van Gogh", "Histeria Viva", "SumergeTEC", "Historia Viva"],
     correctAnswers: ["Historia Viva"],
@@ -143,8 +145,8 @@ const questions = [
     isSpecial: true
   },
   {
-    question: "Qué tan inmersivas te resultaron las experiencias en el museo?",
-    options: ["Muy inmersiva", "Medianamente inmersiva", "Poco inmersiva"],
+    question: "Fueron inmersivas las experiencias de este museo?",
+    options: ["Si, muy inmersiva", "Medianamente inmersiva", "Poco inmersiva"],
     correctAnswers: [],
     isSpecial: false
   },
@@ -156,7 +158,7 @@ const questions = [
   },
   {
     question: "En que consiste el arte colaborativo?",
-    options: ["Son proyecciones en muros", "Son animaciones", "Varias personas pueden juntarse para formar la obra", "No había en la exposición"],
+    options: ["Son proyecciones en muros", "Son animaciones", "No había en la exposición","Varias personas pueden juntarse para formar la obra" ],
     correctAnswers: ["Varias personas pueden juntarse para formar la obra"],
     isSpecial: true
   },
@@ -179,7 +181,7 @@ const questions = [
     isSpecial: false
   },
   {
-    question: "Cómo evaluas la combinación entre arte y tecnología en esta experiencia?",
+    question: "Qué te pareció la combinación entre arte y tecnología en este evento?",
     options: ["Muy equilibrada", "Bien, pero podría mejorar", "Desbalanceada, uno destaca más que el otro"],
     correctAnswers: [],
     isSpecial: false
@@ -285,8 +287,12 @@ const Question: React.FC<QuestionProps> = ({ cardIndex, setProgress, setShowQues
             </div>
             {error && <p className="error">¿Reintentar?</p>}
             <div className="actions">
-              <button onClick={handleRetry}>Reintentar!!</button>
-              <button onClick={handleReset}>¿Reiniciar toda la tabla?</button>
+              <div className="action">
+                <button onClick={handleRetry}>Reintentar!!</button>
+              </div>
+              <div className="action2">
+                <button onClick={handleReset}>¿Reiniciar toda la tabla?⚠️</button>
+              </div>
             </div>
           </>
         )}

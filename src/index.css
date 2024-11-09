@@ -4,22 +4,20 @@ body {
   background-size: cover; /* Hace que el GIF cubra toda la pantalla */
   background-position: end; /* Centra el GIF */
   background-repeat: no-repeat; /* Evita que el GIF se repita */
-  weight: 100%;
   height: 100vh; /* Hace que el fondo cubra toda la ventana */
   margin: 0;
 }
 
 .background-image {
-  position: fixed;
+  position: absolute;
   top: 0;
-  left: 0;
+  left: 15px;
   width: 100%;
   height: 100%;
   background: transparent;
-  display: flex;
   justify-content: center;
   align-items: center;
-  z-index: -1;
+  z-index: -3;
   background-image: url('src/assets/PNG/gift1.png');
 }
 
@@ -66,6 +64,7 @@ body {
   border: 2px solid rgba(234, 190, 63, 0);
   color: rgba(250, 235, 215, 0);
   transform: rotateY(360deg);
+  z-index: 9998;
 }
 
 .confetti-container {
@@ -130,23 +129,36 @@ body {
   display: flex;
   justify-content: space-between;
   justify-items: center;
-  align-content: end;
-  align-items: end;
+  align-content: center;
+  align-items: center;
 }
 
-.question-modal .actions button {
-  width: 48%;
-  height: 75px;
+.question-modal .action button {
+  padding: 0px 145px 0px 145px;
   margin-top: 2vh; 
   font-size: 30px;
-  background-color: #cc0000;
+  background-color: #990000;
 }
 
-.question-modal .actions button:hover {
-  width: 48%;
-  height: 75px;
+.question-modal .action button:hover {
+  padding: 0px 145px 0px 145px;
+  margin-top: 2vh;
   font-size: 30px;
-  background-color: #0056b3;
+  background-color: #ff0000;
+}
+
+.question-modal .action2 button {
+  padding: 0px 30px 0px 43px;
+  margin-top: 2vh; 
+  font-size: 30px;
+  background-color: #555555;
+}
+
+.question-modal .action2 button:hover {
+  padding: 0px 30px 0px 43px;
+  margin-top: 2vh; 
+  font-size: 30px;
+  background-color: #ff0000;
 }
 
 
@@ -210,3 +222,5 @@ body {
   border: none 0px;
   border-radius: 10px;
 }
+
+
