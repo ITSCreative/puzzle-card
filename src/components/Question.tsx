@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Confetti from 'react-confetti';
 
 // Constante con las preguntas y respuestas
 const questions = [
@@ -49,7 +48,7 @@ const questions = [
   {
     question: "Qué técnicas fueron aplicadas dentro del evento?",
     options: [ "Dibujo a mano", "No vi bien, deje doy una vueltita", "Video Mapping más Arte colaborativo"],
-    correctAnswers: ["Video Mapping, Arte colaborativo"],
+    correctAnswers: ["Video Mapping más Arte colaborativo"],
     isSpecial: true
   },
   {
@@ -158,7 +157,7 @@ const questions = [
   },
   {
     question: "En que consiste el arte colaborativo?",
-    options: ["Son proyecciones en muros", "Son animaciones", "No había en la exposición","Varias personas pueden juntarse para formar la obra" ],
+    options: ["Son proyecciones en muros", "Son animaciones", "Varias personas pueden juntarse para formar la obra" ],
     correctAnswers: ["Varias personas pueden juntarse para formar la obra"],
     isSpecial: true
   },
@@ -204,7 +203,6 @@ interface QuestionProps {
 
 const Question: React.FC<QuestionProps> = ({ cardIndex, setProgress, setShowQuestion, handleReset }) => {
   const [selectedAnswers, setSelectedAnswers] = useState<string[]>([]);
-  const [showConfetti, setShowConfetti] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [incorrectAnswers, setIncorrectAnswers] = useState<string[]>([]); // Nuevo estado para respuestas incorrectas
 
@@ -224,8 +222,7 @@ const Question: React.FC<QuestionProps> = ({ cardIndex, setProgress, setShowQues
         localStorage.setItem("progress", JSON.stringify(newProgress));
         return newProgress;
       });
-      setShowConfetti(true); // Activa el confeti
-      setTimeout(() => setShowQuestion(false), 2000); // Cierra el modal después de 2 segundos
+      setTimeout(() => setShowQuestion(false), 1250); // Cierra el modal después de 1.25 segundos
     } else {
       const allCorrect = newSelectedAnswers.every((answer) =>
         question?.correctAnswers.includes(answer)
@@ -239,8 +236,7 @@ const Question: React.FC<QuestionProps> = ({ cardIndex, setProgress, setShowQues
           return newProgress;
         });
         setError(false);
-        setShowConfetti(true);
-        setTimeout(() => setShowQuestion(false), 2000);
+        setTimeout(() => setShowQuestion(false), 1250);
       } else {
         setError(true);
         setIncorrectAnswers((prev) => [...prev, answer]); // Agrega la respuesta incorrecta
@@ -256,17 +252,6 @@ const Question: React.FC<QuestionProps> = ({ cardIndex, setProgress, setShowQues
 
   return (
     <>
-      {showConfetti && (
-        <div className="confetti-container">
-          <Confetti
-            width={window.innerWidth}
-            height={window.innerHeight}
-            gravity={20}
-            tweenDuration={1700}
-            recycle={false}
-          />
-        </div>
-      )}
       <button className="close-button" onClick={() => setShowQuestion(false)}>✕</button>
       <div className="question-modal">
         {question && (

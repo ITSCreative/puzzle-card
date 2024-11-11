@@ -18,7 +18,7 @@ body {
   justify-content: center;
   align-items: center;
   z-index: -3;
-  background-image: url('src/assets/PNG/gift1.png');
+  background-image: url('src/assets/PNG/gift5.png');
 }
 
 .puzzle-board {
@@ -42,7 +42,6 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: transform 0.5s;
   color: rgb(255, 255, 255);
 }
 
@@ -65,16 +64,7 @@ body {
   color: rgba(250, 235, 215, 0);
   transform: rotateY(360deg);
   z-index: 9998;
-}
-
-.confetti-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* Asegura que el confeti no interfiera con otras interacciones */
-  z-index: 10100; /* Asegura que esté por encima de todos los elementos */
+  cursor: default;
 }
 
 .question-modal {
@@ -90,8 +80,7 @@ body {
   border: 2px solid #ccc; /* Color de borde más suave */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera para un efecto elevado */
   z-index: 9999; /* Asegura que esté por encima de las cartas */
-  border-radius: 20px;
-  transition: all 0.3s ease; /* Transición suave al hacer hover */
+  border-radius: 20px; /* Transición suave al hacer hover */
   font-family: 'Roboto-Bold', sans-serif;
   font-size:30px;
 }
@@ -107,8 +96,8 @@ body {
   color: white;
   font-size: 30px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  transition: opacity 0.5s ease; /* Transición de opacidad */
+  transition: background-color 1s ease;
+  transition: opacity 1s ease; /* Transición de opacidad */
   opacity: 1; /* Estado visible */
 }
 
